@@ -34,14 +34,9 @@ def create_country_table(country):
     engine = create_engine('mysql+mysqldb://root:mysql@localhost:3306/hospital', echo=False)
     data.to_sql(name='table_'+country.lower(), con=engine, if_exists='append', index=False)
     database.commit()
-    # data.to_csv('C:/Users/Gaurav/downloads/' + country + ".csv")  # replace path with your desired path
     print("Table: Table_{} has been created.".format(country))
 
-
-# calling functions
-
-# show_data("IND")
-# get_file("IND")
+#calling the functions
 for country in countries:
     show_data(country)
     create_country_table(country)
